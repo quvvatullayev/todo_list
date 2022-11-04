@@ -9,8 +9,7 @@ class Create_todolist(View):
         r = request.POST
         product = Todo_list_model.objects.create(
             task = r['task'],
-            status = r['status']
-        )
+            status = r['status'])
         product.save()
         return HttpResponse('OK')
 
