@@ -7,8 +7,8 @@ from .models import Todo_list_model
 class Create_todolist(View):
     def post(self, request):
         r = request.POST
-        product = Todo_list_model()
-        product.task = r.get('task')
-        product.status = r.get('status')
+        product = Todo_list_model.objects.create(
+            task = r['task'],
+            status = r['status']
+        )
         product.save()
-        return JsonResponse(product)
