@@ -6,3 +6,6 @@ class Todo_list_model(models.Model):
     status = models.TextField()
     created_at = models.DateField(auto_now=True)
     updated_at = models.DateField(auto_now=True)
+
+    def __str__(self) -> str:
+        return self.task

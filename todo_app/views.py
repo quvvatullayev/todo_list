@@ -12,3 +12,10 @@ class Create_todolist(View):
             status = r['status']
         )
         product.save()
+        return HttpResponse('OK')
+
+class Delelt_list(View):
+    def get(self, request, id):
+        product = Todo_list_model.objects.filter(id = id)
+        product.delete()
+        return HttpResponse('product')
