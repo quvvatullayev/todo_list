@@ -44,7 +44,7 @@ The user interface design for the TODO list application is as follows:
 
 # List of Tasks
 
-## [x] 1. Create a virtual environment
+##  1. Create a virtual environment
 
 - Create the requirements.txt file
 - Create the virtual environment
