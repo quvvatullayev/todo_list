@@ -40,3 +40,17 @@ class Get_list(View):
             'status':product.status
         }
         return JsonResponse(json_p)
+
+class Update_list(View):
+    def post(self, request, id):
+        product = Todo_list_model.objects.get(id = id)
+        product.task = request.POST['task']
+        product.status = request.POST['status']
+        product.save()
+
+        json_p = {
+            'id':product.id,
+            'task':product.task,
+            'status':product.status
+        }
+        return JsonResponse(json_p)
