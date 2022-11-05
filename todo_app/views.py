@@ -13,8 +13,8 @@ class Create_todolist(View):
         product.save()
         return HttpResponse('OK')
 
-class Delelt_list(View):
+class Delete_list(View):
     def get(self, request, id):
-        product = Todo_list_model.objects.filter(id = id)
+        product = Todo_list_model.objects.get(id = id)
         product.delete()
-        return HttpResponse('product')
+        return HttpResponse('OK delet')
