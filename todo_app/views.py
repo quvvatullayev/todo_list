@@ -18,3 +18,25 @@ class Delete_list(View):
         product = Todo_list_model.objects.get(id = id)
         product.delete()
         return HttpResponse('OK delet')
+
+class All_get_list(View):
+    def get(self, request):
+        product = Todo_list_model.objects.all()
+        json_p = {'result':[]}
+        for k in product:
+            list_result = json_p['result']
+            list_result.append(
+                {'id':k.id,
+                'task':k.task,
+                'status':k.status})
+        return JsonResponse(json_p)
+
+class Get_list(View):
+    def get(self, request, id):
+        product = Todo_list_model.objects.get(id = id)
+        json_p = {
+            'id':product.id,
+            'task':product.task,
+            'status':product.status
+        }
+        return JsonResponse(json_p)
