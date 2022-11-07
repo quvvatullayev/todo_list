@@ -26,3 +26,13 @@ class Add_list(View):
         )
         todo.save()
         return JsonResponse({'Add task':'OK status_code:200'})
+
+class Updaet_list(View):
+    def post(self, request, id):
+        todo = TodoItem.objects.get(id = id)
+        todo.task = request.POST.get('task')
+        todo.title = request.POST.get('title')
+        # todo.status = request.POST.get('status')
+        todo.description = request.POST.get('description')
+        todo.save()
+        return JsonResponse(TodoItem.objects.get(id = id).todo_json())
