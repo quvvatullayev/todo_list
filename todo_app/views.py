@@ -43,3 +43,11 @@ class Remov_list(View):
         tood.delete()
         return JsonResponse({'Remov list':"OK status_code:200"})
 
+class Get_all(View):
+    def get(self, request):
+        todo_all = TodoItem.objects.all()
+        todo_all_json = {'results':[]}
+        for i in todo_all:
+            todo_all_json['results'].append(i.todo_json())
+        return JsonResponse(todo_all_json)
+
