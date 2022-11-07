@@ -36,3 +36,10 @@ class Updaet_list(View):
         todo.description = request.POST.get('description')
         todo.save()
         return JsonResponse(TodoItem.objects.get(id = id).todo_json())
+
+class Remov_list(View):
+    def get(self, request ,id):
+        tood = TodoItem.objects.get(id = id)
+        tood.delete()
+        return JsonResponse({'Remov list':"OK status_code:200"})
+
