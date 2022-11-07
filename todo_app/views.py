@@ -51,3 +51,8 @@ class Get_all(View):
             todo_all_json['results'].append(i.todo_json())
         return JsonResponse(todo_all_json)
 
+class Get_id(View):
+    def get(self, request, id):
+        todo = TodoItem.objects.get(id = id)
+        todo_json = todo.todo_json()
+        return JsonResponse(todo_json)
