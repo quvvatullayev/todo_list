@@ -10,9 +10,9 @@ class TodoItem(models.Model):
     status = models.BooleanField(default=False)
     description = models.TextField(default='', blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now=True)    
+    updated_at = models.DateTimeField(auto_now=True)
 
-    def to_json(self):
+    def todo_json(self):
         return {
             'id': self.id,
             'title': self.title,
